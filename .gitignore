@@ -25,6 +25,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# This is were the frontend goes at build time
-
-/public/*
+# Ignore public, as it is built on deploy
+# Place files for /public in /client/public
+/public
