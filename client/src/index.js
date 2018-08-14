@@ -8,6 +8,7 @@ import rootReducer from './reducers';
 import FormsIndex from './containers/forms_index';
 import FormsEdit from './containers/forms_edit';
 import FormsShow from './containers/forms_show';
+import NotFound from './containers/NotFound';
 import FormResponses from './containers/form_responses';
 import './index.css';
 import './semantic/dist/semantic.min.css';
@@ -28,7 +29,8 @@ ReactDOM.render(
           <Route path="/forms/:id/responses" component={FormResponses} />
           <Route path="/forms/edit/:id" component={FormsEdit} />
           <Route path="/forms/:id" component={FormsShow} />
-          <Route path="/" component={FormsIndex} />
+          <Route path="/" exact component={FormsIndex} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     </BrowserRouter>

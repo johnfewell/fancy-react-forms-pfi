@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class QuestionsController < ApiController
   def index
       render(
         status: 200,

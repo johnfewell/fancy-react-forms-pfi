@@ -1,4 +1,4 @@
-class FormsController < ApplicationController
+class FormsController < ApiController
   def index
       render(
         status: 200,

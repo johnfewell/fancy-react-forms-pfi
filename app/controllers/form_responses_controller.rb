@@ -1,6 +1,6 @@
 require 'pry'
 
-class FormResponsesController < ApplicationController
+class FormResponsesController < ApiController
   def index
       render(
         status: 200,
@@ -18,7 +18,7 @@ class FormResponsesController < ApplicationController
   end
 
   def create
-    
+
     form_response = FormResponse.new(form_response_params)
     if form_response.save
       render json: form_response, status: 201
