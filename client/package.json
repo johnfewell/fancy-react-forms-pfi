@@ -1,12 +1,30 @@
 {
-  "name": "client",
+  "name": "fancy-react-froms-pfi",
   "version": "0.1.0",
-  "private": true,
-  "proxy": "http://localhost:3001",
+  "engines": {
+    "node": "8.10.0",
+    "yarn": "1.7.0"
+  },
+  "scripts": {
+    "build": "yarn --cwd client install && yarn --cwd client build",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
+  },
   "dependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-intersection-observer": "^6.1.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-form": "^7.4.2",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.82.0"
   },
   "scripts": {
     "start": "react-scripts start",
