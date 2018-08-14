@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_174509) do
+ActiveRecord::Schema.define(version: 2018_08_14_182002) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -41,6 +41,39 @@ ActiveRecord::Schema.define(version: 2018_08_14_174509) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.text "content"
+    t.integer "form_response_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "form_responses", force: :cascade do |t|
+    t.integer "form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["form_id"], name: "index_form_responses_on_form_id"
+  end
+
+  create_table "forms", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "like"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "content"
+    t.integer "form_id"
+    t.text "question_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["form_id"], name: "index_questions_on_form_id"
   end
 
 end
